@@ -1,0 +1,8 @@
+teampass:
+  mysql:
+    host: localhost
+    db: teampass
+    user: teampass
+    pass: changeme
+  saltkey: {{ salt['grains.get_or_set_hash']('teampass_salt_key', 30) }}
+  url: http://{{ grains["host"] }}/teampass
