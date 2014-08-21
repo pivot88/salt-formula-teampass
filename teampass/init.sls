@@ -32,7 +32,7 @@ setup_db:
   cmd.script:
     - source: salt://teampass/files/setup_db.sh
     - template: jinja
-    - unless: curl -f localhost/teampass/
+    - unless: curl -f {{ salt['pillar.get']('teampass:url', 'teampass') }}/
     - require:
       - git: teampass
       - mysql_database: teampass
